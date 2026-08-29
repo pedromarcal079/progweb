@@ -1,0 +1,42 @@
+p.verso {
+    color: blue;
+}
+
+p.mote {
+    color: red;
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+img.avatar {
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+}
+
+.poeta {
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+}
+
+td, table {
+    border: solid black 1px;
+    padding: 3px;
+    margin: 5px;
+    text-align: left;
+}
+
+th {
+    background-color: cyan;
+}

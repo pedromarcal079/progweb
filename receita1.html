@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receita 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg"
+        width="200" />
+    <h1>Uma trova...</h1>
+    <p>
+        Eu só preciso de hoje<br />
+        Pra viver e ser feliz<br />
+        O passado já me foge<br />
+        E o futuro nada diz!<br />
+    </p>
+    <br />
+    <p>
+        Autor: Francisco Borges
+    </p>
+    <h1>Tabela</h1>
+    <div class="column">
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+            <tr>
+                <td>Pedro</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Isabelle</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>Luis</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+    <div class="column">
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+            <tr>
+                <td>Pedro</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Isabelle</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>Luis</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <a href="https://youtu.be/Gf-fCJ6TkRU?si=7_3zIJz9x9x38tzn" target="_blank">Clique aqui</a>
+</body>
+
+</html>

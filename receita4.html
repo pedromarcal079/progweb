@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+            width: 250px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .cerveja {
+            font-weight: bold;
+            color: red;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controles">
+        <button id="botaoCarregar">Carregar Cervejas</button>
+        <button id="botaoOrdenar">Mostrar Ordenadas</button>
+        <button id="botaoEmbaralhar">Embaralhar</button>
+    </div>
+
+    <div id="meu amor"></div>
+</body>
+
+<script>
+    let cervejas = ["Guiness", "Desperados", "Becks"]
+
+    function transformarLinha(item) {
+        return `<tr><td class="cerveja">${item}</td></tr>`
+    }
+
+    function renderizarTabela(itens) {
+        let linhasHtml = itens.map(transformarLinha).join("")
+        let tabela = `
+            <table>
+                <thead>
+                    <tr><th>Nome da Cerveja</th></tr>
+                </thead>
+                <tbody>
+                    ${linhasHtml}
+                </tbody>
+            </table>
+        `
+        document.getElementById("meu amor").innerHTML = tabela
+    }
+
+    // 1. Carregar na ordem original
+    function carregarDiv() {
+        renderizarTabela(cervejas)
+    }
+
+    // 2. Ordenar alfabeticamente usando o método nativo .sort()
+    function mostrarOrdenadas() {
+        cervejas.sort((a, b) => a.localeCompare(b))
+        renderizarTabela(cervejas)
+    }
+
+    // 3. Embaralhar usando .sort() com número randômico
+    function embaralharCervejas() {
+        cervejas.sort(() => Math.random() - 0.5)
+        renderizarTabela(cervejas)
+    }
+
+    document.getElementById("botaoCarregar").addEventListener("click", carregarDiv)
+    document.getElementById("botaoOrdenar").addEventListener("click", mostrarOrdenadas)
+    document.getElementById("botaoEmbaralhar").addEventListener("click", embaralharCervejas)
+</script>
+
+</html>

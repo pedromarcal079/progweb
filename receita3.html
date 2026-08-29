@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #teste {
+            margin: 10%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        #teste.visivel {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div><button id="botaoCarregar">Aperte aqui</button></div>
+    <div id="teste"><h1>Guinness</h1></div>
+</body>
+
+<script>
+    const div = document.getElementById("teste");
+    const botao = document.getElementById("botaoCarregar");
+
+    botao.addEventListener("click", () => {
+        div.classList.toggle("visivel");
+    });
+</script>
+</html>
