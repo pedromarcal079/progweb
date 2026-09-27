@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+            width: 250px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .cerveja {
+            font-weight: bold;
+            color: red;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controles">
+        <a id="botaoCarregar" href="#">Carregar Cervejas</a>
+        <a id="botaoOrdenar" href="#">Mostrar Ordenadas</a>
+        <a id="botaoEmbaralhar" href="#">Embaralhar</a>
+    </div>
+
+    <div id="meu amor"></div>
+</body>
+
+<script>
+    let cervejas = ["Guiness", "Desperados", "Becks"]
+
+    //function carregar(){      
+    const carregarDiv = (cervs) => {
+        const div = document.getElementById("meu amor")
+        const cervejasHtml = cervs.map(item => `<h1>${item}</h1>`)
+        div.innerHTML = `${cervejasHtml.join("\n")}`
+    }
+
+    const transformarLinha = (item) => {
+        return `<tr><td class="cerveja">${item}</td></tr>`
+    }
+
+    const renderizarTabela = (itens) => {
+        const linhasHtml = itens.map(transformarLinha).join("")
+        let tabela = `
+            <table>
+                <thead>
+                    <tr><th>Nome da Cerveja</th></tr>
+                </thead>
+                <tbody>
+                    ${linhasHtml}
+                </tbody>
+            </table>
+        `
+        document.getElementById("meu amor").innerHTML = tabela
+    }
+
+    const carregarTabela = (cervs) => {
+        renderizarTabela(cervs)
+    }
+
+    const mostrarOrdenadas = (cervs) => {
+        cervs.sort((a, b) => a.localeCompare(b))
+        renderizarTabela(cervs)
+    }
+
+    const embaralharCervejas = (cervs) => {
+        cervs.sort(() => Math.random() - 0.5)
+        renderizarTabela(cervs)
+    }
+
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", () => carregarTabela(cervejas))    
+
+    document.getElementById("botaoCarregar").addEventListener("click", () => carregarTabela(cervejas))
+    document.getElementById("botaoOrdenar").addEventListener("click", () => mostrarOrdenadas(cervejas))
+    document.getElementById("botaoEmbaralhar").addEventListener("click", () => embaralharCervejas(cervejas))
+</script>
+
+</html>
