@@ -3,44 +3,51 @@
 
 <head>
    <title>React Um</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-   <div id="app">
-   </div>
+   <button id="botao">Clique aqui</button>
+
+   <div id="app"></div>
+
    <script src="libs/react.js"></script>
    <script src="libs/react-dom.js"></script>
    <script src="libs/babel.js"></script>
+
    <script type="text/babel">
 
-      ReactDOM.render(
-         <div>
-            <Cabecalho />
-            <TabelaBebidas />
-         </div>,
-         document.getElementById("app")
-      )
-      bebidas = [
+      const bebidas = [
          { nome: "Havana", marca: "Engenho Anísio Santiago" },
          { nome: "Coca-Cola", marca: "Coca-Cola Company" },
          { nome: "Pepsi", marca: "PepsiCo" },
          { nome: "Fanta", marca: "Coca-Cola Company" },
          { nome: "Sprite", marca: "Coca-Cola Company" }
       ]
-      function TabelaBebidas() {
+
+      function TabelaBebidas({bebidas}) {
          return (
             <div id="app">
                <table id="tabela" border="1">
                   <thead>
-                     <tr><th>Nome</th><th>Marca</th></tr>
+                     <tr>
+                        <th>Nome</th>
+                        <th>Marca</th>
+                     </tr>
                   </thead>
                   <tbody>
-                     <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                     {bebidas.map((bebida, index) => (
+                        <tr key={index}>
+                           <td>{bebida.nome}</td>
+                           <td>{bebida.marca}</td>
+                        </tr>
+                     ))}
                   </tbody>
                </table>
             </div>
          )
       }
+
       function Cabecalho() {
          return (
             <div id="titulo">
@@ -49,13 +56,18 @@
          )
 
       }
-      function Botao() {
-         return (
-            <div id="botao">
-               <button onClick={adicionarBebida}>Adicionar bebida</button>
-            </div>
+
+      let botao = document.getElementById("botao")
+
+      botao.addEventListener("click", () => {
+         ReactDOM.render(
+            <div>
+               <Cabecalho />
+               <TabelaBebidas bebidas={bebidas} />
+            </div>,
+            document.getElementById("app")
          )
-      }
+      })
 
    </script>
 </body>
