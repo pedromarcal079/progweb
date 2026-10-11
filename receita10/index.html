@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>React Um</title>
+</head>
+
+<body>
+   <div id="app">
+   </div>
+   <script src="libs/react.js"></script>
+   <script src="libs/react-dom.js"></script>
+   <script src="libs/babel.js"></script>
+   <script type="text/babel">
+
+      ReactDOM.render(
+         <div>
+            <Cabecalho />
+            <TabelaBebidas />
+         </div>,
+         document.getElementById("app")
+      )
+      bebidas = [
+         { nome: "Havana", marca: "Engenho Anísio Santiago" },
+         { nome: "Coca-Cola", marca: "Coca-Cola Company" },
+         { nome: "Pepsi", marca: "PepsiCo" },
+         { nome: "Fanta", marca: "Coca-Cola Company" },
+         { nome: "Sprite", marca: "Coca-Cola Company" }
+      ]
+      function TabelaBebidas() {
+         return (
+            <div id="app">
+               <table id="tabela" border="1">
+                  <thead>
+                     <tr><th>Nome</th><th>Marca</th></tr>
+                  </thead>
+                  <tbody>
+                     <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                  </tbody>
+               </table>
+            </div>
+         )
+      }
+      function Cabecalho() {
+         return (
+            <div id="titulo">
+               <h1>Minha tabela de bebidas</h1>
+            </div>
+         )
+
+      }
+      function Botao() {
+         return (
+            <div id="botao">
+               <button onClick={adicionarBebida}>Adicionar bebida</button>
+            </div>
+         )
+      }
+
+   </script>
+</body>
+
+</html>
