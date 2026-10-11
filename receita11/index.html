@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReceitaReact - 2</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+
+        class Teste extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>Olá React</h1>
+                    </div>
+                )
+            }
+        }
+
+        const Teste__ = () => {
+            return (
+                <div>
+                    <h1>Olá React</h1>
+                </div>
+            )
+        }
+
+        class TabelaBebidas extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h2>{this.props.titulo}</h2>
+                        <table id="tabela" border="1">
+                            <thead>
+                                <tr><th>Nome</th><th>Marca</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            }
+        }
+
+        const TabelaBebidas__ = (titulo) => {
+            return (
+                <div>
+                    <h2>{titulo}</h2>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <div>
+                <Teste />
+                <TabelaBebidas titulo="Tabela de Bebidas" />    
+            </div>
+            ,
+            document.getElementById("app"))
+
+    </script>
+</body>
+
+</html>
